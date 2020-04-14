@@ -3,7 +3,8 @@ const Productos = require("../models/productos.model");
 const prod = {};
 
 prod.obtenerProductos = async (req, res) => {
-
+    //res.header('Access-Control-Allow-Origin: *');
+	//res.header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept");
     const productos = await Productos.find();
     res.json(productos);
     //console.log(Productos.find());
@@ -35,7 +36,7 @@ prod.eliminarProductos = async (req, res) => {
 
     let id = req.params.id;
     await Productos.deleteOne({"_id": id});
-    res.send("Producto eliminado");
+    res.send("Respuesta");
 };
 
 module.exports = prod;

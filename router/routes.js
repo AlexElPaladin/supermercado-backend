@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const productosController = require("../controllers/productos.controller");
+const clientesController = require("../controllers/clientes.controller");
+
 
 router.get("/productos", productosController.obtenerProductos);
 
@@ -10,20 +12,12 @@ router.put("/productos/:id", productosController.actualizarProductos);
 
 router.delete("/productos/:id", productosController.eliminarProductos);
 
-router.get("/clientes", (req, res) => {
-    res.send("Obtener clientes");
-});
+router.get("/clientes", clientesController.obtenerClientes);
 
-router.get("/clientes", (req, res) => {
-    res.send("Subir clientes");
-});
+router.post("/clientes", clientesController.insertarCliente);
 
-router.get("/clientes", (req, res) => {
-    res.send("Actualizar clientes");
-});
+router.put("/clientes/:id", clientesController.modificarCliente);
 
-router.get("/clientes", (req, res) => {
-    res.send("Eliminar clientes");
-});
+router.delete("/clientes/:id", clientesController.eliminarCliente);
 
 module.exports = router;
