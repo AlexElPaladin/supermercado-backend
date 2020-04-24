@@ -24,10 +24,11 @@ prod.actualizarProductos = async (req, res) => {
         nombre: req.body.nombre,
         categoria: req.body.categoria,
         precio_unitario: req.body.precio_unitario,
-        stock: req.body.stock
+        stock: req.body.stock,
+        imagen: req.body.imagen
     });
     console.log(req.body.nombre);
-    await Productos.updateOne({"_id": idProd},{$set: {nombre: req.body.nombre}});
+    await Productos.updateOne({"_id": idProd},{$set: {nombre: producto.nombre, categoria: producto.categoria, precio_unitario: producto.precio_unitario, stock: producto.stock}});
     res.json(producto);
     
 };
